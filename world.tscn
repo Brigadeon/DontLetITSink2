@@ -48,6 +48,6 @@ position = Vector2(167, 526)
 scale = Vector2(1.83858, 1.83858)
 sprite_frames = SubResource("SpriteFrames_tl1tv")
 animation = &"Idle"
-frame_progress = 0.0935713
+frame_progress = 0.821457
 
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

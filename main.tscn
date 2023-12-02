@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://0jyvisd6k43t"]
+[gd_scene load_steps=9 format=3 uid="uid://0jyvisd6k43t"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sacw6"]
+[ext_resource type="Texture2D" uid="uid://b7w28tlcmnast" path="res://data/Sprites/Buttons.png" id="2_w88jy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_131xi"]
+texture = ExtResource("2_w88jy")
+region_rect = Rect2(4, 4, 57, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7dc8"]
+texture = ExtResource("2_w88jy")
+region_rect = Rect2(68, 4, 57, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yi1t"]
+texture = ExtResource("2_w88jy")
+region_rect = Rect2(4, 28, 57, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ox257"]
+texture = ExtResource("2_w88jy")
+region_rect = Rect2(4, 4, 57, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4txe3"]
+texture = ExtResource("2_w88jy")
+region_rect = Rect2(68, 4, 57, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43rqy"]
+texture = ExtResource("2_w88jy")
+region_rect = Rect2(4, 28, 57, 18)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sacw6")
@@ -10,6 +35,9 @@ offset_left = 373.0
 offset_top = 292.0
 offset_right = 751.0
 offset_bottom = 442.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_131xi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j7dc8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2yi1t")
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
@@ -17,6 +45,9 @@ offset_left = 373.0
 offset_top = 464.0
 offset_right = 751.0
 offset_bottom = 614.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ox257")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4txe3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_43rqy")
 text = "Quit"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
