@@ -1,3 +1,11 @@
+ParallaxLayer
+Sprite2D
+TextureRect
+ParallaxBackground
+ColorRect
+AnimationPlayer
+CanvasLayer
+CenterContainer
 AnimatedSprite2D
 TextureButton
 Button

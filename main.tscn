@@ -1,7 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://0jyvisd6k43t"]
+[gd_scene load_steps=15 format=3 uid="uid://0jyvisd6k43t"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sacw6"]
 [ext_resource type="Texture2D" uid="uid://b7w28tlcmnast" path="res://data/Sprites/Buttons.png" id="2_w88jy"]
+[ext_resource type="FontFile" uid="uid://c62ik84hrn0en" path="res://data/Font/Born2bSportyV2.ttf" id="2_wv012"]
+[ext_resource type="Texture2D" uid="uid://14riltchirwd" path="res://data/Logo/LogoDesign.png" id="3_hx7pb"]
+[ext_resource type="Script" path="res://Logo.gd" id="4_4bl1p"]
+[ext_resource type="PackedScene" uid="uid://dpjws5mhnstvp" path="res://background.tscn" id="5_uqw5a"]
+
+[sub_resource type="FontVariation" id="FontVariation_ntwsy"]
+base_font = ExtResource("2_wv012")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_131xi"]
 texture = ExtResource("2_w88jy")
@@ -14,6 +21,9 @@ region_rect = Rect2(68, 4, 57, 18)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2yi1t"]
 texture = ExtResource("2_w88jy")
 region_rect = Rect2(4, 28, 57, 18)
+
+[sub_resource type="FontVariation" id="FontVariation_cmc31"]
+base_font = ExtResource("2_wv012")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ox257"]
 texture = ExtResource("2_w88jy")
@@ -31,24 +41,41 @@ region_rect = Rect2(4, 28, 57, 18)
 script = ExtResource("1_sacw6")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 373.0
-offset_top = 292.0
-offset_right = 751.0
-offset_bottom = 442.0
+offset_left = 427.0
+offset_top = 409.0
+offset_right = 689.0
+offset_bottom = 513.0
+theme_override_colors/font_pressed_color = Color(0.878431, 0.866667, 0.243137, 1)
+theme_override_colors/font_hover_color = Color(0.447059, 0.909804, 0.701961, 1)
+theme_override_fonts/font = SubResource("FontVariation_ntwsy")
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxTexture_131xi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j7dc8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2yi1t")
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 373.0
-offset_top = 464.0
-offset_right = 751.0
-offset_bottom = 614.0
+offset_left = 425.0
+offset_top = 527.0
+offset_right = 687.0
+offset_bottom = 631.0
+theme_override_colors/font_pressed_color = Color(0.878431, 0.866667, 0.243137, 1)
+theme_override_colors/font_hover_color = Color(0.447059, 0.909804, 0.701961, 1)
+theme_override_fonts/font = SubResource("FontVariation_cmc31")
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = SubResource("StyleBoxTexture_ox257")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4txe3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_43rqy")
 text = "Quit"
 
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(558, 220)
+scale = Vector2(1.51509, 1.51509)
+texture = ExtResource("3_hx7pb")
+script = ExtResource("4_4bl1p")
+
+[node name="Background" parent="." instance=ExtResource("5_uqw5a")]
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="child_entered_tree" from="Logo" to="." method="_on_logo_child_entered_tree"]

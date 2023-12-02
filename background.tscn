@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpjws5mhnstvp"]
+
+[ext_resource type="Script" path="res://background.gd" id="1_gwgla"]
+[ext_resource type="Texture2D" uid="uid://byyck5gnsuy70" path="res://data/Sprites/BG.png" id="1_qglu1"]
+[ext_resource type="Script" path="res://ParallaxLayer.gd" id="2_iee76"]
+[ext_resource type="Texture2D" uid="uid://b3x0a3gcq0uve" path="res://data/Sprites/Background.png" id="2_iqexu"]
+[ext_resource type="Script" path="res://Foam.gd" id="4_j5isg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lehs"]
+blend_mode = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lc0e5"]
+blend_mode = 1
+
+[node name="Background" type="ParallaxBackground"]
+script = ExtResource("1_gwgla")
+
+[node name="Bg" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_4lehs")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_qglu1")
+
+[node name="Land" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Land" type="Sprite2D" parent="Land"]
+position = Vector2(1107, 564.661)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+offset = Vector2(-2, -8)
+region_enabled = true
+region_rect = Rect2(1, 31, 62, 33)
+
+[node name="Land2" type="Sprite2D" parent="Land"]
+position = Vector2(859, 564.661)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+offset = Vector2(-2, -8)
+region_enabled = true
+region_rect = Rect2(1, 31, 62, 33)
+
+[node name="Land3" type="Sprite2D" parent="Land"]
+position = Vector2(619, 564.661)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+offset = Vector2(-2, -8)
+region_enabled = true
+region_rect = Rect2(1, 31, 62, 33)
+
+[node name="Land4" type="Sprite2D" parent="Land"]
+position = Vector2(379, 564.661)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+offset = Vector2(-2, -8)
+region_enabled = true
+region_rect = Rect2(1, 31, 62, 33)
+
+[node name="Land5" type="Sprite2D" parent="Land"]
+position = Vector2(133, 564.661)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+offset = Vector2(-2, -8)
+region_enabled = true
+region_rect = Rect2(1, 31, 62, 33)
+
+[node name="Sea Shells" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1000, 0)
+
+[node name="Sea Shells" type="Sprite2D" parent="Sea Shells"]
+position = Vector2(65, 498)
+scale = Vector2(2.20588, 2.42308)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(10, 106, 17, 13)
+
+[node name="Sea ShellsY" type="Sprite2D" parent="Sea Shells"]
+position = Vector2(700, 525)
+scale = Vector2(2.20588, 2.42308)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(32, 96, 27, 28)
+
+[node name="Sea ShellsC" type="Sprite2D" parent="Sea Shells"]
+position = Vector2(233, 525)
+scale = Vector2(2.20588, 2.42308)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(4, 88, 10, 10)
+
+[node name="Sea ShellsG" type="Sprite2D" parent="Sea Shells"]
+position = Vector2(455, 502)
+scale = Vector2(3.0196, 2.84791)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(18, 84, 12, 11)
+
+[node name="Water" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1000, 0)
+script = ExtResource("2_iee76")
+
+[node name="Water2" type="Sprite2D" parent="Water"]
+position = Vector2(128.633, 595.684)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 33, 62, 31)
+
+[node name="Water3" type="Sprite2D" parent="Water"]
+position = Vector2(371, 595.684)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 33, 62, 31)
+
+[node name="Water4" type="Sprite2D" parent="Water"]
+position = Vector2(607, 595.684)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 33, 62, 31)
+
+[node name="Water5" type="Sprite2D" parent="Water"]
+position = Vector2(857, 595.684)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 33, 62, 31)
+
+[node name="Water6" type="Sprite2D" parent="Water"]
+position = Vector2(1107, 595.684)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 33, 62, 31)
+
+[node name="Foam" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1000, 0)
+script = ExtResource("4_j5isg")
+
+[node name="Foam" type="Sprite2D" parent="Foam"]
+material = SubResource("CanvasItemMaterial_lc0e5")
+position = Vector2(93, 656.281)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 84, 61, 42)
+
+[node name="Foam2" type="Sprite2D" parent="Foam"]
+material = SubResource("CanvasItemMaterial_lc0e5")
+position = Vector2(329, 656.281)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 84, 61, 42)
+
+[node name="Foam3" type="Sprite2D" parent="Foam"]
+material = SubResource("CanvasItemMaterial_lc0e5")
+position = Vector2(567, 656.281)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 84, 61, 42)
+
+[node name="Foam4" type="Sprite2D" parent="Foam"]
+material = SubResource("CanvasItemMaterial_lc0e5")
+position = Vector2(805, 656.281)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 84, 61, 42)
+
+[node name="Foam5" type="Sprite2D" parent="Foam"]
+material = SubResource("CanvasItemMaterial_lc0e5")
+position = Vector2(1043, 656.281)
+scale = Vector2(4.10863, 4.10863)
+texture = ExtResource("2_iqexu")
+region_enabled = true
+region_rect = Rect2(65, 84, 61, 42)

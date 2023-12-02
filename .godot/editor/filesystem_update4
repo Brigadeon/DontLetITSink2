@@ -1,2 +1,13 @@
 res://main.tscn
+res://scene_transition.gdshader
 res://world.tscn
+res://transition.tscn
+res://transition.gdshader
+res://main.gd
+res://Transition.gd
+res://SceneTransition.tscn
+res://background.tscn
+res://ParallaxLayer.gd
+res://Foam.gd
+res://background.gd
+res://Play.gd
