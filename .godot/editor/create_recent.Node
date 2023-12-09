@@ -1,3 +1,4 @@
+AnimatedSprite2D
 ParallaxLayer
 Sprite2D
 TextureRect
@@ -6,7 +7,6 @@ ColorRect
 AnimationPlayer
 CanvasLayer
 CenterContainer
-AnimatedSprite2D
 TextureButton
 Button
 Label
