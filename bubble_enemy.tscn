@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cucpdsbpejjy4"]
+
+[ext_resource type="Texture2D" uid="uid://bkq0yfgeq7new" path="res://data/Sprites/Bubble.png" id="1_iw0ab"]
+[ext_resource type="Script" path="res://bubble_enemy.gd" id="1_svvil"]
+[ext_resource type="Script" path="res://Breathing.gd" id="3_ya2e6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8ajg"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te8tk"]
+atlas = ExtResource("1_iw0ab")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvmc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te8tk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb5of"]
+radius = 1404.0
+height = 2808.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_briff"]
+radius = 25.0
+height = 50.0
+
+[node name="BubbleEnemy" type="CharacterBody2D"]
+scale = Vector2(1.1, 1.1)
+collision_mask = 2
+script = ExtResource("1_svvil")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_s8ajg")
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_uvmc2")
+script = ExtResource("3_ya2e6")
+
+[node name="detection_area" type="Area2D" parent="."]
+scale = Vector2(1.1, 1.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+visible = false
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CapsuleShape2D_pb5of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CapsuleShape2D_briff")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

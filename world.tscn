@@ -1,56 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1obwhw22os03"]
+[gd_scene load_steps=3 format=3 uid="uid://2i0l20la7k3j"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_2jowb"]
-[ext_resource type="Texture2D" uid="uid://b2ofnjf1mjno8" path="res://data/Player/Narwhal.png" id="2_wrtv4"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sou6q"]
-atlas = ExtResource("2_wrtv4")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6d588"]
-atlas = ExtResource("2_wrtv4")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4x68"]
-atlas = ExtResource("2_wrtv4")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sv88p"]
-atlas = ExtResource("2_wrtv4")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sqjbw"]
-atlas = ExtResource("2_wrtv4")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_14jx8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sou6q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6d588")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o4x68")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sv88p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sqjbw")
-}],
-"loop": false,
-"name": &"Boat Idle",
-"speed": 0.5
-}]
+[ext_resource type="PackedScene" uid="uid://cucpdsbpejjy4" path="res://bubble_enemy.tscn" id="1_etecd"]
+[ext_resource type="PackedScene" uid="uid://cp173csghod77" path="res://player.tscn" id="2_wu36m"]
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_2jowb")
 
-[node name="Narwhal Boat" type="AnimatedSprite2D" parent="."]
-position = Vector2(288, 422)
-sprite_frames = SubResource("SpriteFrames_14jx8")
-animation = &"Boat Idle"
-autoplay = "Boat Idle"
+[node name="BubbleEnemy" parent="." instance=ExtResource("1_etecd")]
+
+[node name="boat" parent="." instance=ExtResource("2_wu36m")]
+show_behind_parent = true
+position = Vector2(555, 488)

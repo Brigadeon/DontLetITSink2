@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://background.gd" id="1_gwgla"]
 [ext_resource type="Texture2D" uid="uid://byyck5gnsuy70" path="res://data/Sprites/BG.png" id="1_qglu1"]
-[ext_resource type="Script" path="res://ParallaxLayer.gd" id="2_iee76"]
 [ext_resource type="Texture2D" uid="uid://b3x0a3gcq0uve" path="res://data/Sprites/Background.png" id="2_iqexu"]
+[ext_resource type="Script" path="res://Water.gd" id="4_g5vm5"]
 [ext_resource type="Script" path="res://Foam.gd" id="4_j5isg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4lehs"]
@@ -104,7 +104,7 @@ region_rect = Rect2(18, 84, 12, 11)
 [node name="Water" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(1000, 0)
-script = ExtResource("2_iee76")
+script = ExtResource("4_g5vm5")
 
 [node name="Water2" type="Sprite2D" parent="Water"]
 position = Vector2(128.633, 595.684)
