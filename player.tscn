@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cp173csghod77"]
+[gd_scene load_steps=12 format=3 uid="uid://cp173csghod77"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_3yur1"]
 [ext_resource type="Texture2D" uid="uid://b2ofnjf1mjno8" path="res://data/Player/Narwhal.png" id="1_bxnla"]
@@ -51,6 +51,10 @@ animations = [{
 radius = 25.0
 height = 50.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vcubq"]
+radius = 32.3077
+height = 64.6154
+
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(1.3, 1.3)
 script = ExtResource("1_3yur1")
@@ -65,5 +69,13 @@ frame_progress = 0.0978278
 script = ExtResource("3_udxd0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(1.3, 1.3)
 shape = SubResource("CapsuleShape2D_6s3ru")
+
+[node name="playerHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerHitbox"]
+shape = SubResource("CapsuleShape2D_vcubq")
+
+[connection signal="body_entered" from="playerHitbox" to="." method="_on_player_hitbox_body_entered"]
