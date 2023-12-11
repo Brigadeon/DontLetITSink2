@@ -12,3 +12,8 @@ func _process(delta):
 
 func _on_animated_sprite_2d_animation_looped():
 	pass # Replace with function body.
+	
+	
+
+
+

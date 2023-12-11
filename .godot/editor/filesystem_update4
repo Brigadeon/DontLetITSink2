@@ -3,3 +3,9 @@ res://player.tscn
 res://World.tscn
 res://bubble_enemy.tscn
 res://Math.tscn
+res://player.gd
+res://bubble_enemy.gd
+res://mathQuestions.gd
+res://world(1).tscn
+res://World.gd
+res://Spawner.gd

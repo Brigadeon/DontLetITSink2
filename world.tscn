@@ -1,13 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://2i0l20la7k3j"]
 
-[ext_resource type="PackedScene" uid="uid://cucpdsbpejjy4" path="res://bubble_enemy.tscn" id="1_etecd"]
+[ext_resource type="Script" path="res://world.gd" id="1_mmt5y"]
 [ext_resource type="PackedScene" uid="uid://cp173csghod77" path="res://player.tscn" id="2_wu36m"]
 
 [node name="World" type="Node2D"]
-
-[node name="BubbleEnemy" parent="." instance=ExtResource("1_etecd")]
-position = Vector2(-69, -64)
+script = ExtResource("1_mmt5y")
 
 [node name="boat" parent="." instance=ExtResource("2_wu36m")]
 show_behind_parent = true
 position = Vector2(555, 488)
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 432.0
+offset_top = 549.0
+offset_right = 704.0
+offset_bottom = 580.0
