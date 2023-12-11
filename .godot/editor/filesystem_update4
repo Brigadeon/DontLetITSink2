@@ -4,7 +4,4 @@ res://scene_transition.gdshader
 res://World.tscn
 res://bubble_enemy.tscn
 res://player.tscn
-res://Math.gd
 res://Math.tscn
-res://player.gd
-res://bubble_enemy.gd
