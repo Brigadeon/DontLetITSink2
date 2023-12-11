@@ -1,9 +1,5 @@
 res://main.tscn
-res://transition.gdshader
-res://scene_transition.gdshader
+res://player.tscn
 res://World.tscn
 res://bubble_enemy.tscn
-res://player.tscn
 res://Math.tscn
-res://player.gd
-res://bubble_enemy.gd
