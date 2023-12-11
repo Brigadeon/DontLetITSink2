@@ -1,15 +1,14 @@
+CollisionShape2D
+Area2D
 Button
 LineEdit
 Label
 Node2D
-CollisionShape2D
 AnimatedSprite2D
 CharacterBody2D
-Area2D
 PathFollow2D
 Path2D
 Marker2D
 Timer
 Node
 VisibleOnScreenNotifier2D
-RigidBody2D
