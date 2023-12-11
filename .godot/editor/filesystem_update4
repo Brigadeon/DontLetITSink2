@@ -1,13 +1,6 @@
-res://World.tscn
+res://main.tscn
 res://transition.gdshader
 res://scene_transition.gdshader
-res://main.tscn
-res://main.gd
-res://SceneTransition.tscn
-res://background.tscn
+res://World.tscn
 res://bubble_enemy.tscn
-res://bubble_enemy.gd
 res://player.tscn
-res://player.gd
-res://Wobble.gd
-res://Breathing.gd
