@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0jyvisd6k43t"]
+[gd_scene load_steps=16 format=3 uid="uid://0jyvisd6k43t"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_sacw6"]
 [ext_resource type="Texture2D" uid="uid://b7w28tlcmnast" path="res://data/Sprites/Buttons.png" id="2_w88jy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://14riltchirwd" path="res://data/Logo/LogoDesign.png" id="3_hx7pb"]
 [ext_resource type="Script" path="res://Logo.gd" id="4_4bl1p"]
 [ext_resource type="PackedScene" uid="uid://dpjws5mhnstvp" path="res://background.tscn" id="5_uqw5a"]
+[ext_resource type="AudioStream" uid="uid://bp2q7o7qmrs47" path="res://data/Music/a-hero-of-the-80s-126684.mp3" id="7_0txlv"]
 
 [sub_resource type="FontVariation" id="FontVariation_ntwsy"]
 base_font = ExtResource("2_wv012")
@@ -75,6 +76,10 @@ texture = ExtResource("3_hx7pb")
 script = ExtResource("4_4bl1p")
 
 [node name="Background" parent="." instance=ExtResource("5_uqw5a")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0txlv")
+autoplay = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
