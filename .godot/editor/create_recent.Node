@@ -1,3 +1,4 @@
+AudioStreamPlayer
 Button
 LineEdit
 Label
@@ -11,5 +12,3 @@ Path2D
 Marker2D
 Timer
 Node
-VisibleOnScreenNotifier2D
-RigidBody2D
