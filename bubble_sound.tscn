@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://opyeuqrtcm0r"]
+
+[ext_resource type="AudioStream" uid="uid://c3vtfqpj64wr4" path="res://data/Music/popsound.mp3" id="1_andfw"]
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="2_kpr10"]
+
+[node name="Bubble sound" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_andfw")
+script = ExtResource("2_kpr10")
