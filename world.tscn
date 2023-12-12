@@ -6,6 +6,9 @@
 [node name="World" type="Node2D"]
 script = ExtResource("1_mmt5y")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [node name="boat" parent="." instance=ExtResource("2_wu36m")]
 show_behind_parent = true
 position = Vector2(555, 488)
@@ -15,3 +18,5 @@ offset_left = 432.0
 offset_top = 549.0
 offset_right = 704.0
 offset_bottom = 580.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

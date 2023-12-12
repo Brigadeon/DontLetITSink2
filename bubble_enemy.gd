@@ -14,12 +14,13 @@ func _physics_process(delta):
 		position += direction * speed * delta
 
 func _on_detection_area_body_entered(body):
-	player = body
-	player_chase = true
+	if body.has_method("boat"):
+		player = body
+		player_chase = true
 
-func _on_detection_area_body_exited(body):
-		player = null
-		player_chase = false
+#func _on_detection_area_body_exited(body):
+#		player = null
+#		player_chase = false
 
 func enemy():
 	pass
