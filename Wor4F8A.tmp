@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://2i0l20la7k3j"]
 
-[ext_resource type="Script" path="res://world.gd" id="1_mmt5y"]
+[ext_resource type="Script" path="res://SpawnerMath.gd" id="1_ld6gd"]
 [ext_resource type="PackedScene" uid="uid://cp173csghod77" path="res://player.tscn" id="2_wu36m"]
 [ext_resource type="AudioStream" uid="uid://b234p2p2qgeb7" path="res://data/Music/8-bit-background-music-for-arcade-game-come-on-mario-164702.mp3" id="3_cnole"]
 [ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="4_685nw"]
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_mmt5y")
 
 [node name="Math" type="Node2D" parent="."]
+position = Vector2(217, 44)
+script = ExtResource("1_ld6gd")
 
 [node name="Timer" type="Timer" parent="Math"]
 wait_time = 3.0
