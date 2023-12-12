@@ -15,7 +15,6 @@ func _on_animated_sprite_2d_animation_looped():
 	pass # Replace with function body.
 	
 	
-
 func _on_timer_timeout():
 	var enemy = enemyScence.instantiate()
 	add_child(enemy)
