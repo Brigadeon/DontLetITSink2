@@ -6,10 +6,6 @@ var enemyScence = preload("res://bubble_enemy.tscn")
 func _ready():
 	$Timer.start()
 
-
-func _on_animated_sprite_2d_animation_looped():
-	pass # Replace with function body.
-	
 	
 func _on_timer_timeout():
 	var enemy = enemyScence.instantiate()

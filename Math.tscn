@@ -23,4 +23,5 @@ offset_top = 435.0
 offset_right = 1007.0
 offset_bottom = 538.0
 
+[connection signal="text_changed" from="LineEdit" to="." method="_on_line_edit_text_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

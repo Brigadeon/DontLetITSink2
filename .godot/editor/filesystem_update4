@@ -2,11 +2,4 @@ res://main.tscn
 res://World.tscn
 res://player.tscn
 res://bubble_enemy.tscn
-res://Math.tscn
-res://bubble_enemy.gd
-res://player.gd
-res://world.gd
-res://default_bus_layout.tres
-res://AudioStreamPlayer.gd
-res://bubble_sound.tscn
-res://SpawnerMath.gd
+res://enemy_spawner.tscn

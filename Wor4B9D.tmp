@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://2i0l20la7k3j"]
+[gd_scene load_steps=6 format=3 uid="uid://2i0l20la7k3j"]
 
 [ext_resource type="Script" path="res://WorldSS.gd" id="1_dau21"]
+[ext_resource type="PackedScene" uid="uid://dtnwwbr4nq5nt" path="res://enemy_spawner.tscn" id="2_tbquv"]
 [ext_resource type="PackedScene" uid="uid://cp173csghod77" path="res://player.tscn" id="2_wu36m"]
 [ext_resource type="AudioStream" uid="uid://b234p2p2qgeb7" path="res://data/Music/8-bit-background-music-for-arcade-game-come-on-mario-164702.mp3" id="3_cnole"]
 [ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="4_685nw"]
@@ -29,18 +30,14 @@ offset_right = 1065.0
 offset_bottom = 823.0
 scale = Vector2(8.55192, 8.55192)
 
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = 840.0
-offset_top = 843.0
-offset_right = 907.063
-offset_bottom = 874.0
-scale = Vector2(1.88, 1)
+[node name="inputNum" type="LineEdit" parent="." groups=["inputNum"]]
+unique_name_in_owner = true
+offset_left = 820.0
+offset_top = 823.0
+offset_right = 960.0
+offset_bottom = 861.0
+scale = Vector2(1.39566, 1.39566)
+theme_override_font_sizes/font_size = 21
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(518, 101)
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="enemySpawner" parent="." instance=ExtResource("2_tbquv")]
+position = Vector2(943.522, 841.591)

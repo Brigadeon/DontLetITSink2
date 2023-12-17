@@ -1,27 +1,52 @@
 extends CharacterBody2D
+class_name Enemy
+@onready var input_num = %inputNum
+
+signal answered_correctly
+var math_instance = null
+var operand1 = 0
+var operand2 = 0
+var operation = 0
+var correctAnswer = 0
 
 var speed = 100
-var player_chase = false
-var player = null
+var player
 var enemyHealth = 3
 var enemyRange = false
 
+func _ready():
+	generate_question()
+	
+	
+func generate_question():
+	operand1 = randi() % 10 + 1 # Random number between 1 and 10
+	operand2 = randi() % 10 + 1 # Random number between 1 and 10
+	operation = randi_range(1, 2) # 1: Addition, 2: Subtraction
+
+	if operation == 1:
+		correctAnswer = operand1 + operand2
+		$Label.text = str(operand1) + " + " + str(operand2)
+	else:
+		# Ensure non-negative results
+		while operand1 < operand2:
+			operand1 = randi() % 10 + 1
+			operand2 = randi() % 10 + 1
+		correctAnswer = operand1 - operand2
+		$Label.text = str(operand1) + " - " + str(operand2)
+
+func check_answer(playerAnswer):
+	var trimmedAnswer = playerAnswer.strip_edges()
+	var intAnswer = int(trimmedAnswer) if trimmedAnswer != "" else null
+	if intAnswer != null and intAnswer == correctAnswer:
+		emit_signal("answered_correctly")
+		queue_free()
+		return true	
+	return false
 
 func _physics_process(delta):
 	playerAttack()
-	if player_chase and player:
-		var direction = (player.position - position).normalized()
-		position += direction * speed * delta
-
-func _on_detection_area_body_entered(body):
-	if body.has_method("boat"):
-		player = body
-		player_chase = true
-
-#func _on_detection_area_body_exited(body):
-#		player = null
-#		player_chase = false
-
+	if player == null: get_tree().get_nodes_in_group("boat")
+	
 func enemy():
 	pass
 	

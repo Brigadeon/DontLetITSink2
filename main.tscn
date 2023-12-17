@@ -42,10 +42,11 @@ region_rect = Rect2(4, 28, 57, 18)
 script = ExtResource("1_sacw6")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 427.0
-offset_top = 409.0
-offset_right = 689.0
-offset_bottom = 513.0
+offset_left = 524.159
+offset_top = 516.412
+offset_right = 786.159
+offset_bottom = 620.412
+scale = Vector2(1.535, 1.535)
 theme_override_colors/font_pressed_color = Color(0.878431, 0.866667, 0.243137, 1)
 theme_override_colors/font_hover_color = Color(0.447059, 0.909804, 0.701961, 1)
 theme_override_fonts/font = SubResource("FontVariation_ntwsy")
@@ -54,12 +55,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_131xi")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j7dc8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2yi1t")
 text = "Play"
+metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 425.0
-offset_top = 527.0
-offset_right = 687.0
-offset_bottom = 631.0
+offset_left = 520.159
+offset_top = 689.412
+offset_right = 782.159
+offset_bottom = 793.412
+scale = Vector2(1.535, 1.535)
 theme_override_colors/font_pressed_color = Color(0.878431, 0.866667, 0.243137, 1)
 theme_override_colors/font_hover_color = Color(0.447059, 0.909804, 0.701961, 1)
 theme_override_fonts/font = SubResource("FontVariation_cmc31")
@@ -68,21 +71,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ox257")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4txe3")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_43rqy")
 text = "Quit"
+metadata/_edit_use_anchors_ = true
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(558, 220)
-scale = Vector2(1.51509, 1.51509)
+position = Vector2(722.159, 295.412)
+scale = Vector2(2.08422, 2.08422)
 texture = ExtResource("3_hx7pb")
 script = ExtResource("4_4bl1p")
-
-[node name="Background" parent="." instance=ExtResource("5_uqw5a")]
-
-[node name="Node" type="Node" parent="."]
 
 [node name="AudioMain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_l4154")
 volume_db = -8.433
 autoplay = true
+
+[node name="Background" parent="." instance=ExtResource("5_uqw5a")]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

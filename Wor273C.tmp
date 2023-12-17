@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://2i0l20la7k3j"]
+
+[ext_resource type="Script" path="res://WorldSS.gd" id="1_dau21"]
+[ext_resource type="PackedScene" uid="uid://cp173csghod77" path="res://player.tscn" id="2_wu36m"]
+[ext_resource type="AudioStream" uid="uid://b234p2p2qgeb7" path="res://data/Music/8-bit-background-music-for-arcade-game-come-on-mario-164702.mp3" id="3_cnole"]
+[ext_resource type="Script" path="res://AudioStreamPlayer.gd" id="4_685nw"]
+[ext_resource type="Script" path="res://mathQuestions.gd" id="4_rbx63"]
+[ext_resource type="Script" path="res://bubble_enemy.gd" id="5_5qu34"]
+[ext_resource type="Texture2D" uid="uid://bkq0yfgeq7new" path="res://data/Sprites/Bubble.png" id="7_buc7i"]
+[ext_resource type="Script" path="res://Breathing.gd" id="8_oms0o"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8ajg"]
+blend_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te8tk"]
+atlas = ExtResource("7_buc7i")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uvmc2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te8tk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_briff"]
+radius = 25.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ytah5"]
+radius = 28.1818
+height = 56.3636
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_dau21")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(929, 476)
+zoom = Vector2(0.94, 0.94)
+
+[node name="boat" parent="." instance=ExtResource("2_wu36m")]
+show_behind_parent = true
+position = Vector2(903, 770)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cnole")
+volume_db = -23.605
+autoplay = true
+script = ExtResource("4_685nw")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 750.0
+offset_top = 833.7
+offset_right = 1037.0
+offset_bottom = 864.7
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1057.0
+offset_top = 815.0
+offset_right = 1065.0
+offset_bottom = 823.0
+scale = Vector2(8.55192, 8.55192)
+
+[node name="BubbleEnemy" type="CharacterBody2D" parent="." groups=["Enemy"]]
+position = Vector2(1229, 492)
+scale = Vector2(1.1, 1.1)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("5_5qu34")
+
+[node name="Math" type="Node2D" parent="BubbleEnemy"]
+script = ExtResource("4_rbx63")
+
+[node name="Label" type="Label" parent="BubbleEnemy/Math"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -26.5
+offset_right = 28.5
+offset_bottom = 26.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BubbleEnemy"]
+material = SubResource("CanvasItemMaterial_s8ajg")
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_uvmc2")
+script = ExtResource("8_oms0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BubbleEnemy"]
+visible = false
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CapsuleShape2D_briff")
+
+[node name="enemyHitbox" type="Area2D" parent="BubbleEnemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BubbleEnemy/enemyHitbox"]
+shape = SubResource("CapsuleShape2D_ytah5")
+
+[connection signal="body_entered" from="BubbleEnemy/enemyHitbox" to="BubbleEnemy" method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="BubbleEnemy/enemyHitbox" to="BubbleEnemy" method="_on_enemy_hitbox_body_exited"]

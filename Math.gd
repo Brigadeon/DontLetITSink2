@@ -1,9 +1,12 @@
 extends Node2D
 
+
 var operand1 = 0
 var operand2 = 0
 var operation = 0
 var correctAnswer = 0
+signal press
+
 
 func _ready():
 	generate_question()
@@ -44,5 +47,10 @@ func check_answer():
 	$LineEdit.text = ""  # Clear the LineEdit after processing the answer
 
 func _on_button_pressed():
+	press.emit()
 	print("Button Pressed")
 	check_answer()
+
+
+func _on_line_edit_text_changed(new_text):
+	pass # Replace with function body.
