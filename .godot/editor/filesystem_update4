@@ -1,5 +1,6 @@
 res://main.tscn
-res://World.tscn
 res://player.tscn
 res://bubble_enemy.tscn
 res://enemy_spawner.tscn
+res://World.tscn
+res://WorldSS.gd

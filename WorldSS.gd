@@ -3,13 +3,11 @@ extends Node2D
 var mathQuizScene = preload("res://bubble_enemy.tscn")
 var spawnedMathQuizzes = []
 var originalPositions = []
-var currentSpawnIndex = 0
 var quizCount = 0
+var quizLimit = 5 
 var quizResetInterval = 5
 var math_questions = []
-var horizontalSpacing = 200
-var quizSpawnPosition = Vector2(518, 100)
-var player_position = Vector2(903, 770)
+var player_position = Vector2(1651, 579)
 var speed = 100
 
 func _ready():
@@ -21,19 +19,28 @@ func _on_timer_timeout():
 func spawn_quiz():
 	var mathQuizInstance = mathQuizScene.instantiate()
 	add_child(mathQuizInstance)
-	var xPosition = currentSpawnIndex * horizontalSpacing
-	var yPosition = 0
-	mathQuizInstance.global_position = Vector2(xPosition, yPosition)
-	mathQuizInstance.global_position = quizSpawnPosition
+	mathQuizInstance.global_position = Vector2(randi() % 800, -50)  # Randomize X position, spawn above the screen
 	spawnedMathQuizzes.append(mathQuizInstance)
-	currentSpawnIndex += 1
+
+
+func reset_quiz_positions():
+	for i in range(originalPositions.size()):
+		spawnedMathQuizzes[i].global_position = originalPositions[i]
 
 func _process(delta):
-	for i in range(spawnedMathQuizzes.size()):
-		var quiz = spawnedMathQuizzes[i]
-		var direction = (player_position - quiz.global_position).normalized()
-		quiz.global_position += direction * speed * delta  # Move quizzes towards player
-
+	var i = 0
+	while i < spawnedMathQuizzes.size():
+		var math_question = spawnedMathQuizzes[i]
+		var direction = (player_position - math_question.global_position).normalized()
+		math_question.global_position += direction * speed * delta  # Move quizzes towards player
+		
+		if math_question.global_position.y < -100:  # If quiz is below the screen
+			math_question.queue_free()  # Remove from the scene
+			spawnedMathQuizzes.remove(i)  # Remove from list
+			spawn_quiz()  # Respawn a new quiz
+		else:
+			i += 1
+			
 
 func _on_button_pressed():
 	var playerAnswer = $LineEdit.text
